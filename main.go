@@ -9,6 +9,9 @@ func main() {
 	a := app.New()
 	w := a.NewWindow("Hello World")
 
-	w.SetContent(widget.NewLabel("Hello World!"))
+	multiLineEntry := widget.NewMultiLineEntry()
+	multiLineEntry.SetMinRowsVisible(4)
+	
+	w.SetContent(multiLineEntry)
 	w.ShowAndRun()
 }
