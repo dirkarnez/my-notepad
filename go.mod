@@ -1,4 +1,4 @@
-module github.com/dirkarnez/fyne-playground
+module github.com/dirkarnez/my-notepad
 
 go 1.25
 
