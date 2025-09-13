@@ -1,0 +1,66 @@
+name: golang-build-actions-workflow
+on:
+  push:
+    # Sequence of patterns matched against refs/tags
+    tags:
+      - 'v*' # Push events to matching v*, i.e. v1.0, v20.15.10
+      
+permissions:
+    contents: write
+    
+jobs:
+  build:
+    strategy:
+      matrix:
+        os: [ windows-latest, macos-latest] # , ubuntu-latest, 
+        go-version: [1.25.x]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+
+      # - name: Setup GCC
+      #   if: ${{ matrix.os != 'windows-latest' }}
+      #   uses: Dup4/actions-setup-gcc@v1
+      #   with:
+      #     version: latest
+
+      # - uses: maxim-lobanov/setup-xcode@v1
+      #   if: ${{ matrix.os == 'macos-latest' }}
+      #   with:
+      #     xcode-version: latest-stable
+          
+      # - name: Install mesa
+      #   if: ${{ matrix.os == 'macos-latest' }}
+      #   run: |
+      #     brew install mesa-glu
+            
+      - name: Get Linux dependencies
+        run: sudo apt-get update && sudo apt-get install golang gcc libxkbcommon-dev libgl1-mesa-dev libegl1-mesa-dev libgles2-mesa-dev libx11-dev xorg-dev
+        if: ${{ matrix.os == 'ubuntu-latest' }}
+        
+      - name: Setup go
+        uses: actions/setup-go@v6.0.0
+        with:
+          go-version: ${{ matrix.go-version }} # The Go version to download (if necessary) and use.
+          
+      - run: go get .
+      
+      - if: ${{ matrix.os == 'windows-latest' }}
+        run: go build -ldflags -H=windowsgui
+    
+      - if: ${{ matrix.os != 'windows-latest' }}
+        run: go build
+      
+      - name: Archive Release
+        uses: thedoctor0/zip-release@master
+        with:
+          type: 'zip'
+          path: ${{ github.event.repository.name }}*
+          filename: "${{ github.event.repository.name }}-${{ github.ref_name }}-${{ matrix.os }}.zip"
+          
+      - name: Release prebuilt
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: "${{ github.event.repository.name }}-${{ github.ref_name }}-${{ matrix.os }}.zip"
+          allowUpdates: true
+          token: ${{ secrets.GITHUB_TOKEN }}
