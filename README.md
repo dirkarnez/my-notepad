@@ -10,3 +10,6 @@ my-notepad
 
 ### Projects
 - [dirkarnez/throttle-textarea](https://github.com/dirkarnez/throttle-textarea)
+
+### Tutorials
+- [fyne的几种multiLine_fyne newmultilineentry-CSDN博客](https://blog.csdn.net/shulu/article/details/140200186)
