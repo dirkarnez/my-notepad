@@ -19,3 +19,6 @@ my-notepad
   - [fyne/widget/menu.go at master · fyne-io/fyne](https://github.com/fyne-io/fyne/blob/master/widget/menu.go)
 - System Tray
   - [System Tray Menu | Fyne.io](https://docs.fyne.io/explore/systray.html)
+- Data binding
+  - [Binding Simple Widgets | Fyne.io](https://docs.fyne.io/binding/simple)
+  - [Data Binding | Fyne.io](https://docs.fyne.io/binding/)
