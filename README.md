@@ -2,6 +2,9 @@ my-notepad
 ==========
 - [shofster/edlin: GO/fyne text editor](https://github.com/shofster/edlin)
 
+### TODOs
+- [ ] Learn this one first: [布局列表 | Fyne 开发文档](https://go-circle.cn/fyne-press/v1.0/2-exploring-fyne/layout-list.html)
+
 ### fyne
 - [dirkarnez/fyne-playground](https://github.com/dirkarnez/fyne-playground)
 
