@@ -31,7 +31,7 @@ func main() {
 	
 	txtArea := widget.NewMultiLineEntry()
 	txtArea.Wrapping = fyne.TextWrapWord
-	txtArea.SetMinRowsVisible(15)
+	// txtArea.SetMinRowsVisible(15)
 	
 	c := container.NewVBox(form, txtArea) 
 	
