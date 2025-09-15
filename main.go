@@ -17,22 +17,22 @@ func main() {
 	// w.SetContent(multiLineEntry)
 	// w.ShowAndRun()
 
-    myApp: = app.New()
+    myApp := app.New()
 	
-	myWindow: = myApp.NewWindow("Hello World")
+	myWindow := myApp.NewWindow("Hello World")
 	
-	userEntry: = widget.NewEntry()
-	userLabel: = widget.NewFormItem("USERNAME", userEntry)
+	userEntry := widget.NewEntry()
+	userLabel := widget.NewFormItem("USERNAME", userEntry)
 	
-	passEntry: = widget.NewPasswordEntry() 
-	passLabel: = widget.NewFormItem("PASSWORD", passEntry)
+	passEntry := widget.NewPasswordEntry() 
+	passLabel := widget.NewFormItem("PASSWORD", passEntry)
 	
-	form: = widget.NewForm(userLabel, passLabel)
+	form := widget.NewForm(userLabel, passLabel)
 	
-	txtArea: = widget.NewMultiLineEntry() 
+	txtArea := widget.NewMultiLineEntry() 
 	txtArea.SetMinRowsVisible(15)
 	
-	c: = container.NewVBox(form, txtArea) 
+	c := container.NewVBox(form, txtArea) 
 	
 	myWindow.SetContent(c) 
 	myWindow.Resize(fyne.NewSize(300, 300))
