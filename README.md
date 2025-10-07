@@ -4,6 +4,7 @@ my-notepad
 
 ### TODOs
 - [ ] Learn this one first: [布局列表 | Fyne 开发文档](https://go-circle.cn/fyne-press/v1.0/2-exploring-fyne/layout-list.html)
+- [ ] [Border | Fyne.io](https://docs.fyne.io/container/border.html)
 
 ### fyne
 - [dirkarnez/fyne-playground](https://github.com/dirkarnez/fyne-playground)
